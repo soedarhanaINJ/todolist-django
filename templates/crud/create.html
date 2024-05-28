@@ -1,0 +1,20 @@
+{% load crispy_forms_tags%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add todo</title>
+</head>
+<body>
+    Add some todo on here:
+    
+    <form action="POST" class="post-form">
+        {% csrf_token %}
+
+        {{ form | crispy }}
+        
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+</body>
+</html>

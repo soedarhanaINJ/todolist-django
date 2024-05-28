@@ -9,12 +9,6 @@ from .models import appTodo
 def index(request):
     item_list = appTodo.objects.order_by("-created_at")
 
-    if request.method == "POST":
-        form = TodoForm(request.POST)
-        if form.is_valid():
-            form.save()
-
-            return redirect('index')
     form = TodoForm()
 
     pageup = {
@@ -23,7 +17,7 @@ def index(request):
         "title": "TODO LIST",
     }
 
-    return render(request, 'index.html', {'form':form,})
+    return render(request, 'index.html', pageup)
 
 
 # function that deletes an item uses the primary key todo item id from the url.
@@ -33,3 +27,16 @@ def remove(request, item_id):
     messages.info(request, "The item has been deleted !!!")
 
     return redirect('index')
+
+# Create or add some todo on FE (frontend)
+def addtodolist(request):
+    if request.method == "POST":
+        form = TodoForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('index')
+    else:
+        form = TodoForm()
+
+    return render(request, 'crud/create.html', {'form': form})    

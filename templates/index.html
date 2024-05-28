@@ -1,4 +1,4 @@
-{% load crispy_forms_tags %} 
+<!-- {% load crispy_forms_tags %} -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +8,24 @@
 </head>
 <body>
     <form method="POST" class="post-form">
-        {% csrf_token %}  
-        {{ form | crispy }}  
-        <button type="submit" class="save btn btn-default">Save</button>  
+        <!-- {% csrf_token %}  
+            {{ form | crispy }}  
+            <button type="submit" class="save btn btn-default">Save</button> 
+        -->
     </form>
-    To do app in here
+
+    <a href="{% url 'addtodo' %}">Add ToDo</a>
+
+    <h1>
+        LIst of todo :
+    </h1>
+    <br/>
+        
+        {% if list %}
+            {% for x in list %}
+                    <br/>{{ x.title }}   |
+                {{ x.detail }}  |   <br/><br/>{{ x.created_at }}
+            {% endfor %}
+        {% endif %}
 </body>
 </html>
