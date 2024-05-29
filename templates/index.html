@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
-</head>
+</head> 
 <body>
-    <form method="POST" class="post-form">
+    <form method="POST" enctype="multipart/form-data">
         <!-- {% csrf_token %}  
             {{ form | crispy }}  
             <button type="submit" class="save btn btn-default">Save</button> 
         -->
     </form>
 
-    <a href="{% url 'addtodo' %}">Add ToDo</a>
+    <a href="{% url 'addtodo_view' %}">Add ToDo</a>
 
     <h1>
         LIst of todo :
@@ -24,7 +24,8 @@
         {% if list %}
             {% for x in list %}
                     <br/>{{ x.title }}   |
-                {{ x.detail }}  |   <br/><br/>{{ x.created_at }}
+                {{ x.detail }}  |   <br/><br/> 
+                {{ x.created_at }} |
             {% endfor %}
         {% endif %}
 </body>

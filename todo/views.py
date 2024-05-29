@@ -29,14 +29,20 @@ def remove(request, item_id):
     return redirect('index')
 
 # Create or add some todo on FE (frontend)
-def addtodolist(request):
+def addtodo_view(request):
     if request.method == "POST":
         form = TodoForm(request.POST)
         if form.is_valid():
             form.save()
 
-            return redirect('index')
+            return redirect('todo_list')
     else:
         form = TodoForm()
 
-    return render(request, 'crud/create.html', {'form': form})    
+    return render(request, 'crud/create.html', {'form': form})
+
+# CRUD part R (Read), showing all of data or value of list
+def todolist_view(request):
+    todos = appTodo.objects.order_by("-created_at")
+
+    return render(request, 'crud/todo_list.html', {"todos": todos})

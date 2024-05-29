@@ -1,0 +1,23 @@
+<!-- templates/todo_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">ToDo List</h1>
+        <ul class="list-group mt-3">
+            {% for todo in todos %}
+                <li class="list-group-item">
+                    <strong>{{ todo.title }}</strong>
+                    <p>{{ todo.detail }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'addtodo_view' %}" class="btn btn-primary mt-3">Add a new ToDo</a>
+    </div>
+</body>
+</html>
