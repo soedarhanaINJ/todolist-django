@@ -1,9 +1,19 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from rest_framework import viewsets
+from .serializers import AppTodoSerializers
 
 # importing of todo form and models
 from .forms import TodoForm
 from .models import appTodo
+
+
+# Code from Digital OCean
+class AppTodoView(viewsets.ModelViewSet):
+    serializer_class = AppTodoSerializers
+    queryset = appTodo.objects.all()
+
+
 
 # Indexing all of data todolist
 def index(request):

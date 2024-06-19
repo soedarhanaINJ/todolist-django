@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todo',
+    'corsheaders',
+    'rest_framework',
 
     #Set django-crispy
     'crispy_forms',
@@ -55,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'todoapp.urls'
@@ -135,3 +139,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Setup for importing the Django Crispy form
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'  # Or 'bootstrap5', 'uni_form', 'foundation', etc.
+
+# whitelisted localhost:3000 because you want the frontend (which will be served on that port) 
+# of the application to interact with the API.
+
+CORS_ORIGIN_WHITELIST = [
+     'http://localhost:3000'
+]
