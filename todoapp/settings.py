@@ -143,6 +143,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'  # Or 'bootstrap5', 'uni_form', 'foundation'
 # whitelisted localhost:3000 because you want the frontend (which will be served on that port) 
 # of the application to interact with the API.
 
-CORS_ORIGIN_WHITELIST = [
-     'http://localhost:3000'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
 ]
