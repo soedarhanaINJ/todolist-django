@@ -1,0 +1,10 @@
+
+// Create image with this syntax, after "--tag" is name of your images. and "." is mean you create image instaltly
+// on your directory,
+
+docker build --tag python-django .
+
+
+// Make the container with this syntax,
+
+docker run --publish 8000:8000 python-django

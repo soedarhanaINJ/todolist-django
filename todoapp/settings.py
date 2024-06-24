@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-23v050xr%sxgxijq7s-fo#a+x-201y04k#$+t7s7nwf12hq0nu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -86,11 +86,16 @@ WSGI_APPLICATION = 'todoapp.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': 'railway',
+       'USER': 'railway',
+       'PASSWORD': 'vbbbPxWQXHjkhhcXnjrgjeityCEAKefR',
+       'HOST': 'roundhouse.proxy.rlwy.net',
+       'PORT': '57860',
+   }
 }
+
 
 
 # Password validation
